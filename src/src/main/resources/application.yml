@@ -1,0 +1,31 @@
+server:
+  port: 3330
+spring:
+  application:
+    name: s4c-microservice-authorization
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://us1.fiwoo.eu:3331/eureka/
+zuul:
+  prefix: /api
+  routes:
+    users-manager-service:
+      path: /users/**
+      serviceId: S4C-MICROSERVICE-USER-MANAGEMENT
+      strip-prefix: false
+    data-visualization-service:
+      path: /data-visualization/**
+      serviceId: S4C-MICROSERVICE-DATA-VISUALIZATION
+      strip-prefix: false
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    org.springframework.cloud: DEBUG
