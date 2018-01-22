@@ -1,12 +1,12 @@
 server:
-  port: 3330
+  port: 8080
 spring:
   application:
     name: s4c-microservice-authorization
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://us1.fiwoo.eu:3331/eureka/
+      defaultZone: http://dev-sac-fase-dos-eureka-registry.emergyalabs.com:8080/eureka/
 zuul:
   prefix: /api
   routes:
