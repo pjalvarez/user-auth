@@ -1,22 +1,22 @@
 server:
-  port: 8080
+  port: _MICROSERVICE_PORT_
 spring:
   application:
-    name: s4c-microservice-authorization
+    name: _MICROSERVICE_
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://dev-sac-fase-dos-eureka-registry.emergyalabs.com:8080/eureka/
+      defaultZone: http://_EUREKA_VHOST_:_EUREKA_PORT_/eureka/
 zuul:
   prefix: /api
   routes:
     users-manager-service:
       path: /users/**
-      serviceId: S4C-MICROSERVICE-USER-MANAGEMENT
+      serviceId: _USER_MANAGEMENT_SERVICE_
       strip-prefix: false
     data-visualization-service:
       path: /data-visualization/**
-      serviceId: S4C-MICROSERVICE-DATA-VISUALIZATION
+      serviceId: _DATA_VISUALIZATION_SERVICE_
       strip-prefix: false
 hystrix:
   command:
