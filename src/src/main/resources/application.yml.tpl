@@ -15,6 +15,10 @@ eureka:
 zuul:
   prefix: /api
   routes:
+    gis:
+      path: /wfs/**
+      serviceId: _GIS_SERVICE_
+      strip-prefix: false
     users-manager-service:
       path: /users/**
       serviceId: _USER_MANAGEMENT_SERVICE_
