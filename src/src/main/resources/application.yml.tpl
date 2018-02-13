@@ -16,7 +16,7 @@ zuul:
   prefix: /api
   routes:
     gis:
-      path: /wfs/**
+      path: /gis/**
       serviceId: _GIS_SERVICE_
       strip-prefix: false
     users-manager-service:
